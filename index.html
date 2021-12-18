@@ -1,0 +1,421 @@
+<!Doctype.html>
+<html>
+<head>
+  <title>online form</title>
+  <link href="form.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+  :root {
+  --color-white: #f3f3f3;
+  --color-darkblue: #f3f3f3;
+  --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+  --color-green: #37af65;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-white);
+  margin: 0;
+}
+
+/* mobile friendly alternative to using background-attachment: fixed */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: var(--color-dark);
+  background-image: linear-gradient(
+      115deg,
+      rgba(58, 58, 158, 0.8),
+      rgba(136, 136, 206, 0.7)
+    ),
+    url(images.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+h1 {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 1.125rem;
+}
+
+h1,
+p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+input,
+button,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  border: none;
+}
+
+.container {
+  width: 100%;
+  margin: 3.125rem auto 0 auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+.header {
+  padding: 0 0.625rem;
+  margin-bottom: 1.875rem;
+}
+
+.description {
+  font-style: italic;
+  font-weight: 200;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.clue {
+  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  color: #e4e4e4;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* form */
+
+form {
+  background: var(--color-darkblue-alpha);
+  padding: 2.5rem 0.625rem;
+  border-radius: 0.25rem;
+}
+
+@media (min-width: 480px) {
+  form {
+    padding: 2.5rem;
+  }
+}
+
+.form-group {
+  margin: 0 auto 1.25rem auto;
+  padding: 0.25rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 2.375rem;
+  padding: 0.375rem 0.75rem;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.input-radio,
+.input-checkbox {
+  display: inline-block;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+}
+
+.input-textarea {
+  min-height: 120px;
+  width: 100%;
+  padding: 0.625rem;
+  resize: vertical;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-green);
+  color: inherit;
+  border-radius: 2px;
+  cursor: pointer;
+}
+  </style>
+  </head>
+  <body>
+    <div class="container">
+  <header class="header">
+    <h1 id="title" class="text-center">online complain Survey Form</h1>
+  </header>
+  <form id="survey-form">
+    <div class="form-group">
+      <div class="form-group">
+      <p>Mr/Mrs</p>
+      <select id="dropdown" name="role" class="form-control" required>
+        <option disabled selected value>Select a Mr/Mrs</option>
+        <option value="MR">Mr</option>
+        <option value="MRS">Mrs</option>
+    </select>
+    <br>
+
+
+    <div id="fullname">
+      <!-- First Name -->
+      <label id="firstLabel" for="fname">First Name &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Last Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="e.g.  john" />
+      <input type="text" id="lname" name="lastname" placeholder="e.g. Rock " />
+    </div>
+    <br>
+    
+    <div class="form-group">
+      <label id="email-label" for="email">Email<span class="clue">(optional)</span></label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        placeholder="Ex : john65@outlook.com"
+        required
+      />
+    </div>
+    
+    <div class="form-group">
+      <label id="number" for="number">Phone Number</label>
+      <input
+        type="tel" 
+        name="telphone" 
+        placeholder="Ex : 888 888 8888" 
+        pattern="[0-9]{3} [0-9]{3} [0-9]{4}" 
+        maxlength="10"  
+        title="Ten digits code" 
+        required
+      />
+    </div>
+      
+      <div class="form-group">
+      <label id="date"for="birthday">Age</label>
+      <input
+        type="date" 
+        id="birthday" 
+        name="birthday"
+      />
+      <br><br>
+    </dir>  
+    
+    <div class="form-group">
+      <label id="name-label" for="name">Country</label>
+      <input
+        type="text"
+        name="name"
+        id="Country"
+        class="form-control"
+        placeholder="Ex : America"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <p>State</p>
+      <select id="dropdown" name="role" class="form-control" required>
+        <option disabled selected value>Select a State</option>
+        <option value="AN">Andaman and Nicobar Islands</option>
+        <option value="AP">Andhra Pradesh</option>
+        <option value="AR">Arunachal Pradesh</option>
+        <option value="AS">Assam</option>
+        <option value="BR">Bihar</option>
+        <option value="CH">Chandigarh</option>
+        <option value="CT">Chhattisgarh</option>
+        <option value="DN">Dadra and Nagar Haveli</option>
+        <option value="DD">Daman and Diu</option>
+        <option value="DL">Delhi</option>
+        <option value="GA">Goa</option>
+        <option value="GJ">Gujarat</option>
+        <option value="HR">Haryana</option>
+        <option value="HP">Himachal Pradesh</option>
+        <option value="JK">Jammu and Kashmir</option>
+        <option value="JH">Jharkhand</option>
+        <option value="KA">Karnataka</option>
+        <option value="KL">Kerala</option>
+        <option value="LA">Ladakh</option>
+        <option value="LD">Lakshadweep</option>
+        <option value="MP">Madhya Pradesh</option>
+        <option value="MH">Maharashtra</option>
+        <option value="MN">Manipur</option>
+        <option value="ML">Meghalaya</option>
+        <option value="MZ">Mizoram</option>
+        <option value="NL">Nagaland</option>
+        <option value="OR">Odisha</option>
+        <option value="PY">Puducherry</option>
+        <option value="PB">Punjab</option>
+        <option value="RJ">Rajasthan</option>
+        <option value="SK">Sikkim</option>
+        <option value="TN">Tamil Nadu</option>
+        <option value="TG">Telangana</option>
+        <option value="TR">Tripura</option>
+        <option value="UP">Uttar Pradesh</option>
+        <option value="UT">Uttarakhand</option>
+        <option value="WB">West Bengal</option>
+    </select>
+    </div>
+    <div class="form-group">
+      <p>City</p>
+      <select id="dropdown" name="role" class="form-control" required>
+        <option disabled selected value>Select a City</option>
+        <option value="SK"> Ariyalur</option>
+        <option value="TN">Chennai</option>
+        <option value="TG">Coimbatore</option>
+        <option value="TR">Cuddalore</option>
+        <option value="UP">Dharmapuri</option>
+        <option value="UT">Uttarakhand</option>
+        <option value="WB">Dindigul</option><option value="SK"> Ariyalur</option>
+        <option value="TN">Erode</option>
+        <option value="TG">Kancheepuram</option>
+        <option value="TR">Kanyakumari</option>
+        <option value="UP">Karur</option>
+        <option value="UT">Madurai,</option>
+        <option value="WB">Nagapattinam</option>
+    </select>
+    </div>
+
+     <div class="form-group">
+      <label id="name-label" for="name">Flat No/ Door No</label>
+      <input
+        type="text"
+        name="name"
+        id="Flat No"
+        class="form-control"
+        placeholder="Ex : 130"
+        required
+        />
+      </dir>
+      <br>
+
+      <div class="form-group">
+      <label id="name-label" for="name">Area</label>
+      <input
+        type="text"
+        name="Area"
+        id="Street"
+        class="form-control"
+        placeholder="Ex : Forst Road"
+        required  
+        />
+      </dir>
+      <br>
+
+
+
+      <div class="form-group">
+      <label id="name-label" for="name">Street</label>
+      <input
+        type="text"
+        name="name"
+        id="Street"
+        class="form-control"
+        placeholder="Ex : 3rd street"
+        required  
+        />
+      </dir>
+      <br>
+
+      <div class="form-group">
+      <label id="name-label" for="name">Postal code/Zip</label>
+      <input
+        type="number"
+        name="name"
+        id="number"
+        class="form-control"
+        placeholder="Postal code/Zip"
+        maxlength="6"
+        required  
+        />
+      </dir>
+      <br>
+
+
+
+
+      <p>Gender</p>
+      <input type="radio" name="gender" value="male"> Male &nbsp&nbsp&nbsp&nbsp
+      <input type="radio" name="gender" value="female"> Female
+    </div>
+    <div class="form-group">
+      <p>which department you need to complain?</p>
+      <select id="most-like" name="mostLike" class="form-control" required>
+        <option disabled selected value>Select an Department</option>
+        <option value="Police">Police</option>
+        <option value="TNEB">TNEB</option>
+        <option value="Transport">Transport</option>
+        <option value="civil">civil</option>
+        <option value="Education">Education</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <p>share you complain</p>
+    
+      <textarea
+        id="comments"
+        class="input-textarea"
+        name="comment"
+        placeholder="Enter your comment here..."
+      ></textarea>
+    </div>
+    <div class="form-group">
+      <label id="name-label" for="name">Upload Documents</label>
+      <input type="file" id="myFile" name="filename" placeholder="any FIR copy Or other Documents ">
+      </dir>
+
+    <div class="form-group">
+      <button type="submit" id="submit" class="submit-button">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+
+    </body>
+</html>
